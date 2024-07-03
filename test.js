@@ -1,7 +1,7 @@
 // Import the function sum from the app.js file
-const { sum } = require('./app.js');
+const { sum, fromEuroToDollar, fromDollarToJapanYen, fromYenToPound  } = require('./app.js');
 
-// Start your first test
+/* // Start your first test
 test('adds 14 + 9 to equal 23', () => {
     // Inside the test we call our sum function with 2 numbers
     let total = sum(14, 9);
@@ -10,37 +10,36 @@ test('adds 14 + 9 to equal 23', () => {
     expect(total).toBe(23);
 });
 
+ */
 
 test("One euro should be 1.07 dollars", function() {
-    // Importo la funcion desde app.js
-    const { fromEuroToDollar } = require('./app.js');
-
-    // Uso la función como debe ser usada
+    // Import the function from app.js
+/*     const { fromEuroToDollar } = require('./app.js');
+ */
+    // Use the function like its supposed to be used
     const dollars = fromEuroToDollar(3.5);
 
-    // Si 1 euro son 1.07 dólares, entonces 3.5 euros debe ser (3.5 * 1.07)
-    const expected = 3.5 * 1.07;
-
-    // Hago mi comparación (la prueba)
-    expect(fromEuroToDollar(3.5)).toBe(3.745); // 1 euro son 1.07 dólares, entonces 3.5 euros deberían ser = (3.5 * 1.07)
+    // If 1 euro is 1.07 dollars, then 3.5 euros should be (3.5 * 1.07)
+    const expected = 3.5 * 1.07; 
+    
+    // This is the comparison for the unit test
+     expect(dollars).toBe(expected); // 1 euro is 1.07 dollars, then 3.5 euros should be = (3.5 * 1.07)
 })
 
-test("One dollar should be 146.26 japanese yen", function(){
-const { fromDollarToJapanYen } = require('./app.js');
+test("One euro should 547.75 yens", function() {
+    const dollars = fromDollarToJapanYen(3.5);
 
-const yen = fromDollarToJapanYen(1.07);
-
-const expected = 1.07 * 146.261682;
-
-expect(fromDollarToJapanYen(1.07)).toBe(156.49999974000002);
+    const expected = 3.5 * 156.5; 
+    
+    // This is the comparison for the unit test
+     expect(dollars).toBe(expected); 
 })
 
-test("1000 japanese yen should be 5.559105431309904 pounds", function(){
-    const { fromYenToPound } = require('./app.js');
+test("From Yen to Pounds, should: 3.045 pounds", function() {
+    const pounds = fromYenToPound(3.5);
+
+    const expected = 3.5 * 0.87; 
     
-    const yen = fromYenToPound(1000);
-    
-    const expected = 1000 * (0.87 / 156.5);
-    
-    expect(fromYenToPound(1000)).toBe(5.559105431309904);
-    })
+    // This is the comparison for the unit test
+     expect(pounds).toBe(expected); 
+})

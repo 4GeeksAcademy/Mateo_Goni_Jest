@@ -2,21 +2,24 @@
 const sum = (a,b) => {
     return a + b
 }
-
+// One euro is:
+let oneEuroIs = {
+    "JPY": 156.5, // japan yen
+    "USD": 1.07, // us dollar
+    "GBP": 0.87, // british pound
+}
 const fromEuroToDollar = function(valueInEuro){
     let valueInDollar = valueInEuro * 1.07;
 
     return valueInDollar;
 }
 
-const fromDollarToJapanYen = function(valueInDollar){
-    let valueInJapanYen = 146.261682 * valueInDollar;
-    return valueInJapanYen;
+function fromDollarToJapanYen(amount){
+    return amount * oneEuroIs.JPY;
 }
 
-const fromYenToPound = function(valueInYen){
-    let valueInPound = (0.87 / 156.5) * valueInYen;
-    return valueInPound;
+function fromYenToPound(amount){
+    return amount * oneEuroIs.GBP;
 }
 
 // Just a console log for ourselves
